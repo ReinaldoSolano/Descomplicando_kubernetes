@@ -1,20 +1,32 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: null
   labels:
-    run: girus
-  name: girus
+    run: day-2
+  name: pod-day2
 spec:
   containers:
-  - image: nginx
-    name: nginx
+  - image: redis
+    name: redis-day-2
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: 0.5
+      requests:
+        memory: "64Mi"
+        cpu: 0.3
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis
   - image: busybox
-    name: busybox
+    name: busybox-day-2
     args:
     - sleep
-    - "300"      
+    - "300"
     resources: {}
+  volumes:
+  - name: redis-storage
+    emptyDir: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
