@@ -14,6 +14,6 @@ spec:
       limits:
         memory: "128Mi"
         cpu: "0.5"
-      requests: # recursos garantidos ao container
-        memory: "64Mi" # memória garantida ao container, no caso 64 megabytes
-        cpu: "0.3" # CPU garantida ao container, no caso 30% de uma CPU
+      requests:
+        memory: "64Mi"
+        cpu: "0.3"
